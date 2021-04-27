@@ -1,2 +1,1 @@
-# Nobug
--_-
+# Experiment is the sole criterion of truth!

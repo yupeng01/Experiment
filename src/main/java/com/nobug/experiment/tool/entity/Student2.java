@@ -1,0 +1,63 @@
+package com.nobug.experiment.tool.entity;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+/**
+ * @author liyupeng01
+ * @version 1.0.0
+ * @Description BeanUtils的测试实体
+ * @createTime 2021年 04月 16:23:00
+ */
+
+public class Student2 {
+    private String name;
+    private Integer age;
+    private BigDecimal height;
+    private List<String> identityList;
+    private Teacher teacher;
+
+    public String getName() {
+        return name;
+    }
+
+    public Student2 setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Student2 setAge(Integer age) {
+        this.age = age;
+        return this;
+    }
+
+    public BigDecimal getHeight() {
+        return height;
+    }
+
+    public Student2 setHeight(BigDecimal height) {
+        this.height = height;
+        return this;
+    }
+
+    public List<String> getIdentityList() {
+        return identityList;
+    }
+
+    public Student2 setIdentityList(List<String> identityList) {
+        this.identityList = identityList;
+        return this;
+    }
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public Student2 setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+        return this;
+    }
+}

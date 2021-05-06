@@ -4,6 +4,7 @@ import com.nobug.experiment.spring.InitBeanTest;
 import com.nobug.experiment.spring.PrototypeTest;
 import com.nobug.experiment.statemachine.StateMachineTest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,10 +40,14 @@ public class ExperimentController {
     }
     @RequestMapping("proto_type_test01")
     public void protoTypeTest01 () {
-        System.out.println(prototypeTest);
+        System.out.println(initPrototypeTest());
     }
     @RequestMapping("proto_type_test02")
     public void protoTypeTest02 () {
         System.out.println(applicationContext.getBean(PrototypeTest.class));
+    }
+    @Lookup
+    public PrototypeTest initPrototypeTest () {
+        return null;
     }
 }

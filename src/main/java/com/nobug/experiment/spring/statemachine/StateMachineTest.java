@@ -1,7 +1,7 @@
-package com.nobug.experiment.statemachine;
+package com.nobug.experiment.spring.statemachine;
 
-import com.nobug.experiment.statemachine.enums.TurnstileEvents;
-import com.nobug.experiment.statemachine.enums.TurnstileStates;
+import com.nobug.experiment.spring.statemachine.enums.TurnstileEvents;
+import com.nobug.experiment.spring.statemachine.enums.TurnstileStates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.StateMachineContext;

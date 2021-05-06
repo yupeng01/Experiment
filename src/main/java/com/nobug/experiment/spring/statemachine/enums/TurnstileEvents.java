@@ -1,4 +1,4 @@
-package com.nobug.experiment.statemachine.enums;
+package com.nobug.experiment.spring.statemachine.enums;
 
 /**
  * @author liyupeng01

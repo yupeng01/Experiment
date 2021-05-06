@@ -1,8 +1,8 @@
 package com.nobug.experiment.controller;
 
-import com.nobug.experiment.spring.InitBeanTest;
-import com.nobug.experiment.spring.PrototypeTest;
-import com.nobug.experiment.statemachine.StateMachineTest;
+import com.nobug.experiment.spring.initbean.InitBeanTest;
+import com.nobug.experiment.spring.initbean.PrototypeTest;
+import com.nobug.experiment.spring.statemachine.StateMachineTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author liyupeng01
  * @version 1.0.0
- * @Description 小实验
+ * @Description 发请求做实验
  * @createTime 2021年 04月 15:58:00
  */
 @RequestMapping("/experiment")

@@ -1,4 +1,4 @@
-package com.nobug.experiment.spring;
+package com.nobug.experiment.spring.initbean;
 
 import com.nobug.experiment.spring.demo.DemoService;
 import org.springframework.stereotype.Component;

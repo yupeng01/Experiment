@@ -1,5 +1,7 @@
 package com.nobug.experiment.controller;
 
+import com.nobug.experiment.statemachine.StateMachineTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/experiment")
 @RestController
 public class ExperimentController {
+    @Autowired
+    public StateMachineTest stateMachineTest;
     @RequestMapping("hello_world")
     public String getHelloWorld () {
         return "Hello World";
+    }
+    @RequestMapping("spring_state_machine")
+    public void springStateMachine () {
+        stateMachineTest.test();
     }
 }

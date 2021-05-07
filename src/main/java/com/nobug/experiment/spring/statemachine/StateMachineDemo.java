@@ -19,7 +19,7 @@ import java.util.Map;
  * @createTime 2021年 05月 15:39:00
  */
 @Service
-public class StateMachineTest implements StateMachinePersist<TurnstileStates, TurnstileEvents, Integer> {
+public class StateMachineDemo implements StateMachinePersist<TurnstileStates, TurnstileEvents, Integer> {
     @Autowired
     private StateMachine<TurnstileStates, TurnstileEvents> stateMachine;
     static Map<Integer, TurnstileStates> cache = new HashMap<>(16);

@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  * @createTime 2021年 05月 17:20:00
  */
 @Component
-public class InitBeanTest {
+public class InitBeanDemo {
 
-    public InitBeanTest (DemoService demoService) {
+    public InitBeanDemo(DemoService demoService) {
         demoService.helloWorld();
     }
 

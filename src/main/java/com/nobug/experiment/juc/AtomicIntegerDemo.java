@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description TODO
  * @createTime 2021年 04月 17:25:00
  */
-public class AtomicIntegerTest {
+public class AtomicIntegerDemo {
     static Integer integerVal = 0;
     static AtomicInteger atomicIntegerVal = new AtomicInteger();
 

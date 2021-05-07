@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class PrototypeTest {
+public class PrototypeDemo {
 
 }

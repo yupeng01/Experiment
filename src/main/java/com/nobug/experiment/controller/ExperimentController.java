@@ -1,8 +1,8 @@
 package com.nobug.experiment.controller;
 
-import com.nobug.experiment.spring.initbean.InitBeanTest;
-import com.nobug.experiment.spring.initbean.PrototypeTest;
-import com.nobug.experiment.spring.statemachine.StateMachineTest;
+import com.nobug.experiment.spring.initbean.InitBeanDemo;
+import com.nobug.experiment.spring.initbean.PrototypeDemo;
+import com.nobug.experiment.spring.statemachine.StateMachineDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ExperimentController {
     @Autowired
-    private StateMachineTest stateMachineTest;
+    private StateMachineDemo stateMachineDemo;
     @Autowired
-    private InitBeanTest initBeanTest;
+    private InitBeanDemo initBeanDemo;
     @Autowired
-    private PrototypeTest prototypeTest;
+    private PrototypeDemo prototypeDemo;
     @Autowired
     private ApplicationContext applicationContext;
     @RequestMapping("hello_world")
@@ -32,11 +32,11 @@ public class ExperimentController {
     }
     @RequestMapping("spring_state_machine")
     public void springStateMachine () {
-        stateMachineTest.test();
+        stateMachineDemo.test();
     }
     @RequestMapping("init_bean_test")
     public void initBeanTest () {
-        initBeanTest.sayHello();
+        initBeanDemo.sayHello();
     }
     @RequestMapping("proto_type_test01")
     public void protoTypeTest01 () {
@@ -44,10 +44,10 @@ public class ExperimentController {
     }
     @RequestMapping("proto_type_test02")
     public void protoTypeTest02 () {
-        System.out.println(applicationContext.getBean(PrototypeTest.class));
+        System.out.println(applicationContext.getBean(PrototypeDemo.class));
     }
     @Lookup
-    public PrototypeTest initPrototypeTest () {
+    public PrototypeDemo initPrototypeTest () {
         return null;
     }
 }

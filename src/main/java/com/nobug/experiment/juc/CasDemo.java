@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @createTime 2021年 05月 15:11:00
  */
 public class CasDemo implements Runnable{
-    private static AtomicInteger currentNum = new AtomicInteger();
+    private static final AtomicInteger currentNum = new AtomicInteger();
     private static String[] charArr = {"a","b","c"};
     private String name;
     public CasDemo(String name) {

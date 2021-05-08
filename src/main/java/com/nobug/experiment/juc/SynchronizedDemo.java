@@ -17,12 +17,12 @@ public class SynchronizedDemo implements Runnable{
 
     private String name;
 
-    public SynchronizedDemo(String name) {
+    public SynchronizedDemo (String name) {
         this.name = name;
     }
 
     @Override
-    public void run() {
+    public void run () {
         while (operateInteger.getCurrentCount() < operateInteger.getMaxCount()) {
             synchronized (operateInteger) {
                 if (operateInteger.getCurrentCount() < operateInteger.getMaxCount()) {
@@ -43,7 +43,7 @@ public class SynchronizedDemo implements Runnable{
     }
 
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 20, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>());
         threadPoolExecutor.execute(new SynchronizedDemo("a"));
         threadPoolExecutor.execute(new SynchronizedDemo("b"));
@@ -51,26 +51,26 @@ public class SynchronizedDemo implements Runnable{
         threadPoolExecutor.shutdown();
     }
 
-    private static class OperateInteger{
+    private static class OperateInteger {
         private int currentCount;
 
         private int maxCount;
 
-        private void printAndPlusOne() {
+        private void printAndPlusOne () {
             System.out.println(chars[currentCount%3] + "\t" + currentCount);
             currentCount++;
         }
 
-        public OperateInteger(int currentCount, int maxCount) {
+        public OperateInteger (int currentCount, int maxCount) {
             this.currentCount = currentCount;
             this.maxCount = maxCount;
         }
 
-        public int getCurrentCount() {
+        public int getCurrentCount () {
             return currentCount;
         }
 
-        public int getMaxCount() {
+        public int getMaxCount () {
             return maxCount;
         }
     }

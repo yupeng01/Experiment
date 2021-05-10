@@ -19,4 +19,8 @@ public class InitBeanDemo {
     public void sayHello () {
         System.out.println("Hello");
     }
+
+    public void sayHello (String name) {
+        System.out.println(name + "Hello");
+    }
 }

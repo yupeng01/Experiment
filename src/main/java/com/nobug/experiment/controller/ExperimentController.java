@@ -1,12 +1,15 @@
 package com.nobug.experiment.controller;
 
+import com.nobug.experiment.spring.aop.AopDemo;
 import com.nobug.experiment.spring.initbean.InitBeanDemo;
 import com.nobug.experiment.spring.initbean.PrototypeDemo;
 import com.nobug.experiment.spring.statemachine.StateMachineDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,6 +29,8 @@ public class ExperimentController {
     private PrototypeDemo prototypeDemo;
     @Autowired
     private ApplicationContext applicationContext;
+    @Autowired
+    private AopDemo aopDemo;
     @RequestMapping("hello_world")
     public String getHelloWorld () {
         return "Hello World";
@@ -37,6 +42,10 @@ public class ExperimentController {
     @RequestMapping("init_bean_test")
     public void initBeanTest () {
         initBeanDemo.sayHello();
+    }
+    @RequestMapping("init_bean_by_name")
+    public void initBeanByName (@RequestParam String name) {
+        initBeanDemo.sayHello(name);
     }
     @RequestMapping("proto_type_test01")
     public void protoTypeTest01 () {
@@ -50,4 +59,14 @@ public class ExperimentController {
     public PrototypeDemo initPrototypeTest () {
         return null;
     }
+
+    @RequestMapping("aop_demo")
+    public void aopDemo () {
+        aopDemo.eat();
+    }
+    @RequestMapping("aop_demo_by_name")
+    public void aopDemoByName (@RequestBody String name, @RequestParam String age) {
+        aopDemo.eat(name + age);
+    }
+
 }

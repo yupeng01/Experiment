@@ -7,7 +7,6 @@ import com.nobug.experiment.spring.statemachine.StateMachineDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,8 +64,8 @@ public class ExperimentController {
         aopDemo.eat();
     }
     @RequestMapping("aop_demo_by_name")
-    public void aopDemoByName (@RequestBody String name, @RequestParam String age) {
-        aopDemo.eat(name + age);
+    public void aopDemoByName (@RequestParam String name) {
+        aopDemo.eat(name);
     }
 
 }

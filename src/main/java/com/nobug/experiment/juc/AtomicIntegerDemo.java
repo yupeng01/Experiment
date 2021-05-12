@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author liyupeng01
  * @version 1.0.0
- * @Description TODO
+ * @Description 多线程对Integer和AtomicInteger共享变量自增结果
  * @createTime 2021年 04月 17:25:00
  */
 public class AtomicIntegerDemo {

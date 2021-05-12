@@ -7,9 +7,7 @@ import com.nobug.experiment.spring.statemachine.StateMachineDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author liyupeng01
@@ -30,7 +28,7 @@ public class ExperimentController {
     private ApplicationContext applicationContext;
     @Autowired
     private AopDemo aopDemo;
-    @RequestMapping("hello_world")
+    @RequestMapping({"hello_world", "hello_world1"})
     public String getHelloWorld () {
         return "Hello World";
     }
@@ -40,11 +38,11 @@ public class ExperimentController {
     }
     @RequestMapping("init_bean_test")
     public void initBeanTest () {
-        initBeanDemo.sayHello();
+
     }
     @RequestMapping("init_bean_by_name")
     public void initBeanByName (@RequestParam String name) {
-        initBeanDemo.sayHello(name);
+
     }
     @RequestMapping("proto_type_test01")
     public void protoTypeTest01 () {
@@ -68,4 +66,20 @@ public class ExperimentController {
         aopDemo.eat(name);
     }
 
+    @GetMapping("/request_param_demo")
+    public void requestParamDemo (@RequestParam String id) {
+        System.out.println(id);
+    }
+    @GetMapping("/request_param_demo/{id}")
+    public void requestParamDemo2 (@PathVariable String id) {
+        System.out.println(id);
+    }
+    @GetMapping("/request_param_demo/id")
+    public void requestParamDemo3 () {
+        System.out.println("3");
+    }
+    @GetMapping("path_variable_demo/{id}")
+    public void pathVariableDemo (@PathVariable String id) {
+        System.out.println(id);
+    }
 }

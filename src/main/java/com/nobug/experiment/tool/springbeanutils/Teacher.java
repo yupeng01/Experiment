@@ -1,4 +1,4 @@
-package com.nobug.experiment.tool.entity;
+package com.nobug.experiment.tool.springbeanutils;
 
 /**
  * @author liyupeng01

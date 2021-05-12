@@ -1,6 +1,8 @@
 package com.nobug.experiment.spring.initbean;
 
-import com.nobug.experiment.spring.demo.DemoService;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,17 +12,22 @@ import org.springframework.stereotype.Component;
  * @createTime 2021年 05月 17:20:00
  */
 @Component
-public class InitBeanDemo {
+public class InitBeanDemo implements InitializingBean , BeanPostProcessor {
 
-    public InitBeanDemo(DemoService demoService) {
-        demoService.helloWorld();
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(beanName + " BeanPostProcessor before init");
+        return bean;
     }
 
-    public void sayHello () {
-        System.out.println("Hello");
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(beanName + "BeanPostProcessor after init");
+        return bean;
     }
 
-    public void sayHello (String name) {
-        System.out.println(name + "Hello");
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("InitializingBean init");
     }
 }

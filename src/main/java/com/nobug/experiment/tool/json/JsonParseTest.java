@@ -1,4 +1,4 @@
-package com.nobug.experiment.tool;
+package com.nobug.experiment.tool.json;
 
 /**
  * @author liyupeng01

@@ -1,4 +1,4 @@
-package com.nobug.experiment.tool.entity;
+package com.nobug.experiment.tool.springbeanutils;
 
 import java.math.BigDecimal;
 import java.util.List;

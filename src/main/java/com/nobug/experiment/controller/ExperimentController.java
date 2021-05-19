@@ -1,5 +1,7 @@
 package com.nobug.experiment.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.nobug.experiment.controller.entity.BigDecimalDemoEntity;
 import com.nobug.experiment.spring.aop.AopDemo;
 import com.nobug.experiment.spring.initbean.InitBeanDemo;
 import com.nobug.experiment.spring.initbean.PrototypeDemo;
@@ -81,5 +83,9 @@ public class ExperimentController {
     @GetMapping("path_variable_demo/{id}")
     public void pathVariableDemo (@PathVariable String id) {
         System.out.println(id);
+    }
+    @GetMapping("bigdecimal_demo")
+    public void bigDecimalDemo (@RequestBody BigDecimalDemoEntity entity) {
+        System.out.println(JSON.toJSONString(entity));
     }
 }

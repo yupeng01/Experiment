@@ -85,7 +85,7 @@ public class ExperimentController {
         System.out.println(id);
     }
     @GetMapping("bigdecimal_demo")
-    public void bigDecimalDemo (@RequestBody BigDecimalDemoEntity entity) {
+    public void bigDecimalDemo (BigDecimalDemoEntity entity) {
         System.out.println(JSON.toJSONString(entity));
     }
 }

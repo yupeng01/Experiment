@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
  * @Description TODO
  * @createTime 2021年 06月 01日 14:02:00
  */
-@Component("")
+@Component
 public class AutowiredDemo {
 }

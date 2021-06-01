@@ -22,7 +22,7 @@ public class InitBeanDemo implements InitializingBean , BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println(beanName + "BeanPostProcessor after init");
+        System.out.println(beanName + " BeanPostProcessor after init");
         return bean;
     }
 

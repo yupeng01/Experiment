@@ -13,8 +13,12 @@ public class VolatileDemo {
         Thread thread = new Thread(threadDemo);
         thread.start();
         while (true) {
-            //System.out.println(threadDemo.flag); sout会读取主内存中的值
-            //Thread.sleep(1);  线程切换会将线程缓存中的值同步到主内存中
+            System.out.println(threadDemo.flag); //sout会读取主内存中的值
+//            try {
+//                Thread.sleep(1);  //线程切换会将线程缓存中的值同步到主内存中
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             if (threadDemo.flag) {
                 System.out.println("主线程读取到的flag = " + threadDemo.flag);
                 break;
@@ -28,11 +32,11 @@ class ThreadDemo implements Runnable {
     public boolean flag = false;
     @Override
     public void run() {
-        try {
-            Thread.sleep(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         flag = true;
         System.out.println("ThreadDemo线程修改后的flag = " + flag);
     }

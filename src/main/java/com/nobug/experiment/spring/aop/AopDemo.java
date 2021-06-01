@@ -24,4 +24,5 @@ public class AopDemo {
     public void eat (String name) {
         System.out.println(name + "吃饭");
     }
+
 }

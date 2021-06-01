@@ -2,7 +2,6 @@ package com.nobug.experiment.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.nobug.experiment.controller.entity.BigDecimalDemoEntity;
-import com.nobug.experiment.spring.aop.AopDemo;
 import com.nobug.experiment.spring.initbean.InitBeanDemo;
 import com.nobug.experiment.spring.initbean.PrototypeDemo;
 import com.nobug.experiment.spring.statemachine.StateMachineDemo;
@@ -28,8 +27,8 @@ public class ExperimentController {
     private PrototypeDemo prototypeDemo;
     @Autowired
     private ApplicationContext applicationContext;
-    @Autowired
-    private AopDemo aopDemo;
+//    @Autowired
+//    private AopDemo aopDemo;
     @RequestMapping({"hello_world", "hello_world1"})
     public String getHelloWorld () {
         return "Hello World";
@@ -61,11 +60,11 @@ public class ExperimentController {
 
     @RequestMapping("aop_demo")
     public void aopDemo () {
-        aopDemo.eat();
+//        aopDemo.eat();
     }
     @RequestMapping("aop_demo_by_name")
     public void aopDemoByName (@RequestParam String name) {
-        aopDemo.eat(name);
+//        aopDemo.eat(name);
     }
 
     @GetMapping("/request_param_demo")

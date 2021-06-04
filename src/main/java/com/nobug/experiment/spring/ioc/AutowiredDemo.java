@@ -10,4 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class AutowiredDemo {
+    public void hello () {
+        System.out.println("hello AutowiredDemo");
+    }
 }

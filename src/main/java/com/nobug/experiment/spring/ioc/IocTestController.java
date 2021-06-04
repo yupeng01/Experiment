@@ -16,8 +16,7 @@ import javax.annotation.Resource;
 @RequestMapping("ioc_test")
 @RestController()
 public class IocTestController {
-    @Autowired
-    private AutowiredDemo autoWiredDemo;
+    private AutowiredDemo autowiredDemo;
     @Resource
     private ResourceDemo resourceDemo;
 
@@ -29,5 +28,10 @@ public class IocTestController {
     @GetMapping("demo01")
     public void demo01 () {
         resourceDemo.helloWorld();
+    }
+    @Autowired
+    public IocTestController (AutowiredDemo autowiredDemo) {
+        this.autowiredDemo = autowiredDemo;
+        System.out.println("Nothing to do");
     }
 }

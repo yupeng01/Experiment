@@ -2,7 +2,11 @@ package com.nobug.experiment.spring.initbean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @createTime 2021年 05月 17:20:00
  */
 @Component
-public class InitBeanDemo implements InitializingBean , BeanPostProcessor {
+public class InitBeanDemo implements InitializingBean , BeanPostProcessor, BeanFactoryPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -29,5 +33,15 @@ public class InitBeanDemo implements InitializingBean , BeanPostProcessor {
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("InitializingBean init");
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        DefaultListableBeanFactory beanFactory1 = (DefaultListableBeanFactory) beanFactory;
+        beanFactory1.setAllowBeanDefinitionOverriding(true);
+        GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
+        beanDefinition.setBeanClass(PrototypeDemo.class);
+        beanFactory1.registerBeanDefinition("prototypeDemo", beanDefinition);
+        System.out.println("count:" + beanFactory1.getBeanDefinitionCount());
     }
 }

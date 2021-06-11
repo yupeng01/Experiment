@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
 public class AutowiredDemo2 {
 
     public void say () {
-        System.out.println("调用成功");
+        //System.out.println("调用成功");
     }
 }

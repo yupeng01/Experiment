@@ -32,6 +32,6 @@ public class IocTestController {
     @Autowired
     public IocTestController (AutowiredDemo autowiredDemo) {
         this.autowiredDemo = autowiredDemo;
-        System.out.println("Nothing to do");
+        //System.out.println("Nothing to do");
     }
 }

@@ -27,6 +27,6 @@ public class DemoService {
 
     @Autowired(required = false)
     public DemoService (AutowiredDemo autowiredDemo, ResourceDemo resourceDemo) {
-        System.out.println("DemoService one args constructor, constructor name is autowiredDemo and resourceDemo");
+        //System.out.println("DemoService one args constructor, constructor name is autowiredDemo and resourceDemo");
     }
 }

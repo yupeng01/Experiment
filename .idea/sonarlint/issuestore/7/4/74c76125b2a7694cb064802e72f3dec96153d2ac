@@ -1,0 +1,9 @@
+
+^	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+r
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ãùéëüÿÿÿÿ
+r
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(åºŸÿÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(ã¶‡íşÿÿÿÿ

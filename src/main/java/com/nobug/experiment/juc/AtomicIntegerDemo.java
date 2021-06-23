@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description 多线程对Integer和AtomicInteger共享变量自增结果
  * @createTime 2021年 04月 17:25:00
  */
-public class AtomicIntegerDemo {
+public class  AtomicIntegerDemo {
     static Integer integerVal = 0;
     static AtomicInteger atomicIntegerVal = new AtomicInteger();
 
@@ -31,7 +31,7 @@ public class AtomicIntegerDemo {
         }
         try {
             for (FutureTask<Integer> futureTask : ftList) {
-                futureTask.get();
+                futureTask.get( );
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

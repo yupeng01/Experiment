@@ -1,43 +1,79 @@
 package com.nobug.experiment.juc;
 
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author liyupeng01
  * @version 1.0.0
- * @Description TODO
+ * @Description volatile的demo
  * @createTime 2021年 05月 26日 10:30:00
  */
 public class VolatileDemo {
     public static final Object sync = new Object();
-    public static void main(String[] args) {
-        ThreadDemo threadDemo = new ThreadDemo();
-        Thread thread = new Thread(threadDemo);
-        thread.start();
-        while (true) {
-            System.out.println(threadDemo.flag); //sout会读取主内存中的值
-//            try {
-//                Thread.sleep(1);  //线程切换会将线程缓存中的值同步到主内存中
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-            if (threadDemo.flag) {
-                System.out.println("主线程读取到的flag = " + threadDemo.flag);
-                break;
+    public static void main(String[] args) throws InterruptedException {
+        MyData myData = new MyData();
+        for (int i = 0; i < 20; i++) {
+            new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    myData.volatileNumberIncr();
+                    myData.syncNumberIncr();
+                    myData.atomicInteger.incrementAndGet();
+                }
+            },String.valueOf(i)).start();
+        }
+        //System.out.println(myData.volatileNumber);
+        TimeUnit.SECONDS.sleep(5);
+        System.out.println(myData.volatileNumber);
+        System.out.println(myData.atomicInteger);
+        System.out.println(myData.syncNumber);
+    }
+
+    //验证了volatile的可见性
+    private static void testVolatileV1() {
+        MyData myData = new MyData();
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + " come in");
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            myData.volatileNumberAddTo200();
+            myData.numberAddTo100();
+            System.out.println(Thread.currentThread().getName() + " update Number, volatileNumber: "
+                    + myData.volatileNumber +" number: " + myData.number);
+        }, "AAA").start();
+        System.out.println(Thread.currentThread().getName() + " come in");
+//        while(myData.volatileNumber == 0) {
+//
+//        }
+        //TimeUnit.SECONDS.sleep(4);
+        System.out.println(Thread.currentThread().getName() + " volatileNumber :" + myData.volatileNumber);
+        while(myData.number == 0) {
 
         }
+        System.out.println(Thread.currentThread().getName() + " number :" + myData.number);
     }
 }
 
-class ThreadDemo implements Runnable {
-    public boolean flag = false;
-    @Override
-    public void run() {
-//        try {
-//            Thread.sleep(5);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        flag = true;
-        System.out.println("ThreadDemo线程修改后的flag = " + flag);
+class MyData {
+    public Integer number = 0;
+    public volatile Integer volatileNumber = 0;
+    public volatile Integer syncNumber = 0;
+    public AtomicInteger atomicInteger = new AtomicInteger();
+    public void numberAddTo100 () {
+        number = 100;
+    }
+    public void volatileNumberAddTo200 () {
+        volatileNumber = 200;
+    }
+
+    public void volatileNumberIncr () {
+        volatileNumber++;
+    }
+    public synchronized void syncNumberIncr () {
+        syncNumber++;
     }
 }
+

@@ -21,7 +21,7 @@ public class TestInstance {
         System.out.println(list instanceof Object);
         System.out.println(ArrayList.class.isInstance(list));
         Object o = new Object();
-        System.out.println(ArrayList.class.isInstance(o));
+        System.out.println(list.getClass().isInstance(o));
         System.out.println(Object.class.isInstance(list));
         System.out.println(ArrayList.class.isAssignableFrom(AbstractList.class));
         System.out.println(ArrayList.class.isAssignableFrom(List.class));

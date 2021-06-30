@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc;
+package com.nobug.experiment.juc.cas;
 
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;

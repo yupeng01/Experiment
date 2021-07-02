@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc.sync;
+package com.nobug.experiment.juc.lock;
 
 /**
  * @author liyupeng01

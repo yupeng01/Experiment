@@ -25,12 +25,15 @@ public class VolatileDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            //将volatile修饰的Integer类型的值由默认的0增加至200
             myData.volatileNumberAddTo200();
+            //将没有volatile修饰的Integer类型的值由0增加至100
             myData.numberAddTo100();
             System.out.println(Thread.currentThread().getName() + " update Number, volatileNumber: "
                     + myData.volatileNumber +" number: " + myData.number);
         }, "AAA").start();
         System.out.println(Thread.currentThread().getName() + " come in");
+        //如果开启这个for循环，下面的while就阻塞不住了
 //        while(myData.volatileNumber == 0) {
 //
 //        }

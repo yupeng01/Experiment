@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc.sync;
+package com.nobug.experiment.juc.lock;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

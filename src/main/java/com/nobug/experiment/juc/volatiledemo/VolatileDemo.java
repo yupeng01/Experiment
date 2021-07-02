@@ -12,11 +12,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class VolatileDemo {
     public static final Object sync = new Object();
     public static void main(String[] args) throws InterruptedException {
-        testVolatileV1();
+        checkVolatileVisibility();
     }
 
     //验证了volatile的可见性
-    private static void testVolatileV1() {
+    private static void checkVolatileVisibility() {
         MyData myData = new MyData();
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + " come in");
@@ -45,7 +45,8 @@ public class VolatileDemo {
         System.out.println(Thread.currentThread().getName() + " number :" + myData.number);
     }
 
-    private static void testVolatileV2() throws InterruptedException {
+    //验证volatile不保证原子性
+    private static void checkVolatileAtomicity() throws InterruptedException {
         MyData myData = new MyData();
         for (int i = 0; i < 20; i++) {
             new Thread(() -> {
@@ -61,6 +62,37 @@ public class VolatileDemo {
         System.out.println(myData.volatileNumber);
         System.out.println(myData.atomicInteger);
         System.out.println(myData.syncNumber);
+    }
+
+    private static int a = 0;
+    private static int b = 0;
+
+    //验证volatile禁止指令重排序
+    private static void checkVolatileNoReorder () {
+        new Thread(() -> {
+           while (true) {
+               set(1, 1);
+               get();
+           }
+        }).start();
+
+        new Thread(() -> {
+            while (true) {
+                set(0, 0);
+                get();
+            }
+        }).start();
+    }
+
+    private static void set (int x, int y) {
+        a = x;
+        b = y;
+    }
+
+    private static void get () {
+        if (a == 1 && b == 0) {
+            System.out.println("发生了指令重排序");
+        }
     }
 
 }

@@ -108,6 +108,12 @@ class MyData {
     public void volatileNumberAddTo200 () {
         volatileNumber = 200;
     }
+    public void numberAdd100 () {
+        number += 100;
+    }
+    public void volatileNumberAdd200 () {
+        volatileNumber += 200;
+    }
 
     public void volatileNumberIncr () {
         volatileNumber++;

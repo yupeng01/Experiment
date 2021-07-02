@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc;
+package com.nobug.experiment.juc.volatiledemo;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -12,21 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class VolatileDemo {
     public static final Object sync = new Object();
     public static void main(String[] args) throws InterruptedException {
-        MyData myData = new MyData();
-        for (int i = 0; i < 20; i++) {
-            new Thread(() -> {
-                for (int j = 0; j < 1000; j++) {
-                    myData.volatileNumberIncr();
-                    myData.syncNumberIncr();
-                    myData.atomicInteger.incrementAndGet();
-                }
-            },String.valueOf(i)).start();
-        }
-        //System.out.println(myData.volatileNumber);
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println(myData.volatileNumber);
-        System.out.println(myData.atomicInteger);
-        System.out.println(myData.syncNumber);
+        testVolatileV1();
     }
 
     //验证了volatile的可见性
@@ -35,7 +21,7 @@ public class VolatileDemo {
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + " come in");
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -55,6 +41,25 @@ public class VolatileDemo {
         }
         System.out.println(Thread.currentThread().getName() + " number :" + myData.number);
     }
+
+    private static void testVolatileV2() throws InterruptedException {
+        MyData myData = new MyData();
+        for (int i = 0; i < 20; i++) {
+            new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    myData.volatileNumberIncr();
+                    myData.syncNumberIncr();
+                    myData.atomicInteger.incrementAndGet();
+                }
+            },String.valueOf(i)).start();
+        }
+        //System.out.println(myData.volatileNumber);
+        TimeUnit.SECONDS.sleep(5);
+        System.out.println(myData.volatileNumber);
+        System.out.println(myData.atomicInteger);
+        System.out.println(myData.syncNumber);
+    }
+
 }
 
 class MyData {

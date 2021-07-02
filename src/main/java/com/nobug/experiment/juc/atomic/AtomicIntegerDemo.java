@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc;
+package com.nobug.experiment.juc.atomic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description 多线程对Integer和AtomicInteger共享变量自增结果
  * @createTime 2021年 04月 17:25:00
  */
-public class  AtomicIntegerDemo {
+public class AtomicIntegerDemo {
     static Integer integerVal = 0;
     static AtomicInteger atomicIntegerVal = new AtomicInteger();
 

@@ -1,4 +1,4 @@
-package com.nobug.experiment.juc;
+package com.nobug.experiment.juc.sync;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
  * @Description synchronized实现顺序打印abc
  * @createTime 2021年 05月 16:09:00
  */
-public class SynchronizedDemo implements Runnable{
+public class PrintInOrderDemo implements Runnable{
     private static String[] chars = {"a", "b", "c"};
 
     private static final OperateInteger operateInteger = new OperateInteger(0, 30);
 
     private String name;
 
-    public SynchronizedDemo (String name) {
+    public PrintInOrderDemo(String name) {
         this.name = name;
     }
 
@@ -45,9 +45,9 @@ public class SynchronizedDemo implements Runnable{
 
     public static void main (String[] args) {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 20, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>());
-        threadPoolExecutor.execute(new SynchronizedDemo("a"));
-        threadPoolExecutor.execute(new SynchronizedDemo("b"));
-        threadPoolExecutor.execute(new SynchronizedDemo("c"));
+        threadPoolExecutor.execute(new PrintInOrderDemo("a"));
+        threadPoolExecutor.execute(new PrintInOrderDemo("b"));
+        threadPoolExecutor.execute(new PrintInOrderDemo("c"));
         threadPoolExecutor.shutdown();
     }
 

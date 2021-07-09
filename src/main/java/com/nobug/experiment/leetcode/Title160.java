@@ -26,6 +26,15 @@ public class Title160 {
         }
         return null;
     }
+    public static ListNode getIntersectionNodeV2 (ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        ListNode p1 = headA, p2 = headB;
+        while (p1 != p2) {
+            p1 = p1 == null ? headB : p1.next;
+            p2 = p2 == null ? headA : p2.next;
+        }
+        return p1;
+    }
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(4);
         ListNode listNode2 = new ListNode(1);
@@ -43,6 +52,6 @@ public class Title160 {
         listNode3.next = listNode4;
         listNode4.next = listNode5;
         listNode5.next = listNode6;
-        System.out.println(getIntersectionNode(listNode1, listNode3).val);
+        System.out.println(getIntersectionNodeV2(listNode1, listNode3).val);
     }
 }

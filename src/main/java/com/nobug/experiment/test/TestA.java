@@ -11,4 +11,5 @@ import lombok.Data;
 @Data
 public class TestA {
     private TestB testB;
+
 }

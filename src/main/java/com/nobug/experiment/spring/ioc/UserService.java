@@ -10,10 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
-    public UserService (User user, OrderService orderService) {
-        System.out.println("进入构造器1");
-    }
-    public UserService (User user, OrderService orderService, Integer userId) {
-        System.out.println("进入构造器2");
-    }
+
 }

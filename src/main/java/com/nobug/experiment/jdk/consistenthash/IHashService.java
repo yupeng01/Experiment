@@ -1,4 +1,4 @@
-package com.nobug.experiment.jdk.consisthash;
+package com.nobug.experiment.jdk.consistenthash;
 
 /**
  * @author liyupeng01
@@ -7,5 +7,5 @@ package com.nobug.experiment.jdk.consisthash;
  * @createTime 2021年 07月 28日 11:22:00
  */
 public interface IHashService {
-    long hash64A (String key);
+    long hash (String key);
 }

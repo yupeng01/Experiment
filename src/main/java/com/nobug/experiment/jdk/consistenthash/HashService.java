@@ -1,4 +1,4 @@
-package com.nobug.experiment.jdk.consisthash;
+package com.nobug.experiment.jdk.consistenthash;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -12,7 +12,7 @@ import java.nio.ByteOrder;
 public class HashService implements IHashService {
 
     @Override
-    public long hash64A(String key) {
+    public long hash(String key) {
         return hash64A(ByteBuffer.wrap(key.getBytes()));
     }
     public static long hash64A(ByteBuffer buf) {

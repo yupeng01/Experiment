@@ -1,4 +1,4 @@
-package com.nobug.experiment.jdk.consisthash;
+package com.nobug.experiment.jdk.consistenthash;
 
 /**
  * @author liyupeng01

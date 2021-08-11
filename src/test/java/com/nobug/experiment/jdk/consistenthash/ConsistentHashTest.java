@@ -26,7 +26,7 @@ public class ConsistentHashTest {
 
         IHashService iHashService = new HashService();
         // 每台真实机器引入100个虚拟节点
-        ConsistentHash<Node<String>> consistentHash = new ConsistentHash<Node<String>>(iHashService, 1000, nodes);
+        ConsistentHash<Node<String>> consistentHash = new ConsistentHash<Node<String>>(iHashService, 10000, nodes);
 
         List<String> dataList = new ArrayList<>();
         // 将5000条记录尽可能均匀的存储到10台机器节点上

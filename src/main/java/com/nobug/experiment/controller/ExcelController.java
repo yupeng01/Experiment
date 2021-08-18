@@ -11,9 +11,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.IntStream;
 
 @RequestMapping("excel")
 @RestController
@@ -32,13 +30,6 @@ public class ExcelController {
 
     private List<DownloadData> buildDownloadDataList () {
         List<DownloadData> list = new ArrayList<>();
-        IntStream.range(0, 10).forEach(item -> {
-            DownloadData downloadData = new DownloadData();
-            downloadData.setDataTitle(new Date());
-            downloadData.setStringTitle("字符串:" + item);
-            downloadData.setDoubleTitle((double)item);
-            list.add(downloadData);
-        });
         return list;
     }
 

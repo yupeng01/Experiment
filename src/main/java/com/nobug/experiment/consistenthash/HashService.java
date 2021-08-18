@@ -1,4 +1,4 @@
-package com.nobug.experiment.jdk.consistenthash;
+package com.nobug.experiment.consistenthash;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

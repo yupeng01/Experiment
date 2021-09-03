@@ -13,4 +13,10 @@ public class AssertTest {
     public void testAssert (String s) {
         assert false;
     }
+
+    public static void main(String[] args) {
+        int i = 1;
+        assert false : "i should not be 1";
+        System.out.println("success");
+    }
 }

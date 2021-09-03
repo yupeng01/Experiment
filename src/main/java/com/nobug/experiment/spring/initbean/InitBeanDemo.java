@@ -26,13 +26,13 @@ public class InitBeanDemo implements InitializingBean , BeanPostProcessor, BeanF
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        //System.out.println(beanName + " BeanPostProcessor after init");
+        System.out.println(beanName + " BeanPostProcessor after init");
         return bean;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        //System.out.println("InitializingBean init");
+        System.out.println("InitializingBean init");
     }
 
     @Override

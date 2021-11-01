@@ -63,12 +63,11 @@ public class HashMapDemo {
         return hashMap;
     }
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
-        Map<String, Object> hashMap = initBigMap();
-        long endTime1 = System.currentTimeMillis();
-        System.out.println(hashMap.get("1234"));
-        long endTime2 = System.currentTimeMillis();
-        System.out.println(endTime1 - startTime);
-        System.out.println(endTime2 - endTime1);
+        Map<String, Object> hashMap = initHashMap();
+        for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey());
+            hashMap.put("14", 14);
+        }
+
     }
 }

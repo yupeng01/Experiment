@@ -11,7 +11,11 @@ public class FinalExample {
 
     }
 
-    public static final void test (String str) {
+    public final void test (String str) {
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }

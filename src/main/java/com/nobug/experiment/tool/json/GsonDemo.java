@@ -12,7 +12,7 @@ public class GsonDemo {
                 .setName("李玉鹏");
         System.out.println(toJsonString(people));
         Map<String, Object> map = new HashMap();
-        map.put("liyupeng", toJsonString(people));
+        map.put("liyupeng", people);
         System.out.println(toJsonString(map));
     }
 

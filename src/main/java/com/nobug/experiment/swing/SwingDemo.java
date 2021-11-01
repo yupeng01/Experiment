@@ -1,2 +1,5 @@
-package com.nobug.experiment.swing;public class SwingDemo {
+package com.nobug.experiment.swing;
+
+public class SwingDemo {
+
 }

@@ -1,2 +1,4 @@
-package com.nobug.experiment.hutool;public class HutoolDemo {
+package com.nobug.experiment.hutool;
+
+public class HuToolDemo {
 }

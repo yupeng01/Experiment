@@ -1,4 +1,4 @@
-package generator;
+package com.nobug.experiment.generator;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -20,14 +20,14 @@ public class CodeGenerator {
 
     static final String  PATH_NAME = "finance-app";
     static final String  MODULE_NAME = "finance";
-    static final String  DB_URL = "jdbc:mysql://test-renrenche3.db.58dns.org:43644/partner_testing?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true";
+    static final String  DB_URL = ""; //TODO JDBCURL
     static final String  DB_DRIVER = "com.mysql.jdbc.Driver";
-    static final String  DB_USERNAME = "partner_wr";
-    static final String  DB_PASSWORD = "116e852b4aefe50b";
+    static final String  DB_USERNAME = ""; //TODO username
+    static final String  DB_PASSWORD = ""; //TODO password
 
-    static final String  AUTHOR = "fanmingxin";
+    static final String  AUTHOR = "liyupeng";
     //
-    static final String[] TABLE_NAME = new String[]{"p_deduct_deposit_bill"};
+    static final String[] TABLE_NAME = new String[]{""};//TODO table name
 
 
 
@@ -102,7 +102,7 @@ public class CodeGenerator {
         strategy.setInclude(TABLE_NAME);
         //strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(new String[]{"p_"});
+        strategy.setTablePrefix(new String[]{"p_"}); //TODO表前缀
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
